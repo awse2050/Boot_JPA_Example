@@ -1,5 +1,6 @@
 package com.example.bootex.domains.board.presentation;
 
+import com.example.bootex.domains.board.dto.BoardRegisterDto;
 import com.example.bootex.domains.board.entity.Board;
 import com.example.bootex.domains.board.service.BoardService;
 import lombok.RequiredArgsConstructor;
@@ -20,9 +21,9 @@ public class BoardApiController {
     private final BoardService boardService;
 
     @PostMapping(value = BOARD_API_URI)
-    public ResponseEntity<String> register(@RequestBody Board board) {
+    public ResponseEntity<String> register(@RequestBody BoardRegisterDto dto) {
 
-        Long boardId = boardService.register(board);
+        Long boardId = boardService.register(dto);
 
         return Objects.nonNull(boardId) ? new ResponseEntity<>("register", HttpStatus.CREATED) :
                     new ResponseEntity<>("fail", HttpStatus.BAD_REQUEST);
