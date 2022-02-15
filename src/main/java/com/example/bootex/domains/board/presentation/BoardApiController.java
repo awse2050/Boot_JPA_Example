@@ -1,8 +1,7 @@
 package com.example.bootex.domains.board.presentation;
 
 import com.example.bootex.domains.board.dto.BoardRegisterDto;
-import com.example.bootex.domains.board.entity.Board;
-import com.example.bootex.domains.board.service.BoardService;
+import com.example.bootex.domains.board.service.BoardCommandService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,12 +17,12 @@ public class BoardApiController {
 
     private static final String BOARD_API_URI = "/api/board";
 
-    private final BoardService boardService;
+    private final BoardCommandService boardCommandService;
 
     @PostMapping(value = BOARD_API_URI)
     public ResponseEntity<String> register(@RequestBody BoardRegisterDto dto) {
 
-        Long boardId = boardService.register(dto);
+        Long boardId = boardCommandService.register(dto);
 
         return Objects.nonNull(boardId) ? new ResponseEntity<>("register", HttpStatus.CREATED) :
                     new ResponseEntity<>("fail", HttpStatus.BAD_REQUEST);

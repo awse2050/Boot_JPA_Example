@@ -9,8 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
-@Transactional(readOnly = true) // 읽기 성능향상
-public class BoardService {
+public class BoardCommandService {
 
     private final BoardRepository boardRepository;
 

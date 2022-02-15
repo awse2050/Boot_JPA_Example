@@ -1,5 +1,6 @@
 package com.example.bootex.domains.board.entity;
 
+import com.example.bootex.listener.LogEntityListener;
 import com.example.bootex.util.DateEntity;
 import lombok.*;
 
