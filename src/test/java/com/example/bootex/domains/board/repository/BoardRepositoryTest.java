@@ -29,9 +29,7 @@ class BoardRepositoryTest {
         Board board = Board.builder()
                 .title("title2")
                 .content("content2")
-                .writer("writer")
-                .regDate(new Date())
-                .modDate(new Date())
+                .writer("writer3")
                 .build();
 
         boardRepository.save(board);
