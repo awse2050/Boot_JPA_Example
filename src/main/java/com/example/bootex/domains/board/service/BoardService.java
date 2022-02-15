@@ -1,5 +1,6 @@
 package com.example.bootex.domains.board.service;
 
+import com.example.bootex.domains.board.dto.BoardRegisterDto;
 import com.example.bootex.domains.board.entity.Board;
 import com.example.bootex.domains.board.repository.BoardRepository;
 import lombok.RequiredArgsConstructor;
@@ -15,12 +16,13 @@ public class BoardService {
 
     /**
      * 게시판 등록
-     * @param board
+     * @param boardRegisterDto
      * @return boardId
      */
     @Transactional
-    public Long register(Board board) {
-        // 영속상태로 선언
+    public Long register(BoardRegisterDto boardRegisterDto) {
+        Board board = BoardRegisterDto.registerDtoToEntity(boardRegisterDto);
+
         boardRepository.save(board);
         Long boardId = board.getId();
 

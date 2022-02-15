@@ -1,18 +1,17 @@
 package com.example.bootex.domains.board.entity;
 
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import com.example.bootex.util.DateEntity;
+import lombok.*;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
+@Builder
 @Getter
 @ToString
-public class Board {
+public class Board extends DateEntity {
 
     // 게시물 번호, 제목, 내용, 작성자, 시간
     @Id
@@ -28,10 +27,4 @@ public class Board {
 
     @Column(name = "WRITER")
     private String writer;
-
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date regDate;
-
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date modDate;
 }
