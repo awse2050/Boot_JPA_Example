@@ -37,3 +37,7 @@ tasks.named('test') {
 jar {
     enabled = false
 }
+
+bootJar {
+    jar.enabled = true // 빌드시 jar 을 실행
+}
