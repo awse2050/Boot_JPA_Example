@@ -3,6 +3,7 @@ package com.example.bootex.domains.board.repository;
 import com.example.bootex.domains.board.BoardEntitySetup;
 import com.example.bootex.domains.board.entity.Board;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,13 @@ class BoardRepositoryTest extends BoardEntitySetup {
 
     @Autowired
     private BoardRepository boardRepository;
+
+    @BeforeEach
+    public void before() {
+        Board board = getEntity();
+
+        boardRepository.save(board);
+    }
 
     @Test
     @DisplayName("Save Test 성공")

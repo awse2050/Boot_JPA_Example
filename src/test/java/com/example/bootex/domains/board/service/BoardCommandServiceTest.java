@@ -2,6 +2,7 @@ package com.example.bootex.domains.board.service;
 
 import com.example.bootex.domains.board.BoardDtoSetup;
 import com.example.bootex.domains.board.dto.BoardRegisterDto;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,13 @@ class BoardCommandServiceTest extends BoardDtoSetup {
 
     @Autowired
     private BoardCommandService boardCommandService;
+
+    @BeforeEach
+    public void before() {
+        BoardRegisterDto dto = getRegisterDto();
+
+        Long id = boardCommandService.register(dto);
+    }
 
     @DisplayName("Register Test")
     @Test

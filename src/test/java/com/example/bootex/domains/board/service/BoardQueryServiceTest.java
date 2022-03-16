@@ -2,8 +2,10 @@ package com.example.bootex.domains.board.service;
 
 import com.example.bootex.domains.board.BoardDtoSetup;
 import com.example.bootex.domains.board.dto.BoardGetDto;
+import com.example.bootex.domains.board.dto.BoardRegisterDto;
 import com.example.bootex.domains.board.entity.Board;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +25,16 @@ class BoardQueryServiceTest extends BoardDtoSetup {
 
     @Autowired
     private BoardQueryService boardQueryService;
+
+    @Autowired
+    private BoardCommandService boardCommandService;
+
+    @BeforeEach
+    public void before() {
+        BoardRegisterDto dto = getRegisterDto();
+
+        Long id = boardCommandService.register(dto);
+    }
 
     @DisplayName("게시물 1개 조회 성공")
     @Test
