@@ -15,7 +15,7 @@ sleep 10
 for RETRY_COUJNT in {1..10}
 do
   RESPONSE=$(curl -s http://localhost:${IDLE_PROT}/profile)
-  UP_COUNT=$(echo ${RESPONSE} | grep 'real' | wc -1)
+  UP_COUNT=$(echo ${RESPONSE} | grep 'real' | wc -l)
 
   if [ ${UP_COUNT} -ge 1 ]
   then
