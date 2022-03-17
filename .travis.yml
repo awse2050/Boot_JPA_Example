@@ -27,7 +27,7 @@ notifications:
 before_deploy:
   - zip -r bootjpa *
   - mkdir -p deploy
-  - mv bootjpa.zip deply/bootjpa.zip
+  - mv bootjpa.zip deploy/bootjpa.zip
 
 deploy:
   provider: s3
