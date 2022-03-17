@@ -10,7 +10,7 @@ JAR_PREFIX=bootEx
 
 echo ">Build 파일 복사"
 
-cp $REPOSITORY/zip/*SNAPSHOT.jar $REPOSITORY/
+cp $REPOSITORY/zip/*.jar $REPOSITORY/
 
 echo "> 현재 구동중인 앱 PID 확인"
 CURRENT_PID=$(pgrep -f ${JAR_PREFIX}.*jar)
