@@ -3,6 +3,7 @@
 # 쉬고 있는 profile 찾기
 
 echo " > profile... :  $(curl -s http://localhost/profile)"
+echo " > res ... : $(curl -s -o /dev/null -w "%{http_code}" http://localhost/profile) "
 
 function find_idle_profile() {
 
